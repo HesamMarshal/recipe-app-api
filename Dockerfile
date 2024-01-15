@@ -1,13 +1,12 @@
 FROM python:3.9-alpine3.13
-LABEL maintainer="hesammarshal.ir"
+LABEL maintainer="londonappdeveloper.com"
 
 ENV PYTHONUNBUFFERED 1
 
-COPY ./requierments.txt /tmp/requierments.txt
+COPY ./requirements.txt /requirements.txt
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
-
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
@@ -21,4 +20,3 @@ RUN python -m venv /py && \
 ENV PATH="/py/bin:$PATH"
 
 USER django-user
-
